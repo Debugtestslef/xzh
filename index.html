@@ -1,0 +1,154 @@
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title></title>
+    <script type="text/javascript" src="js/fontsize.js"></script>
+    <link rel="stylesheet" href="css/结构.css">
+</head>
+<body>
+<div class="container">
+    <!--第一屏-->
+    <div>
+        <img src="img/cover.png" class="div_img1">
+        <img src="img/wording_cover.png">
+    </div>
+    <!--第二屏-->
+    <div class="down">
+        <div>
+            <img src="img/wording.png">
+            <img src="img/circle.png">
+            <img src="img/people.png">
+            <img src="img/check_develop.png">
+            <img src="img/dot1.png">
+        </div>
+        <!--第二屏第二页-->
+        <div class="rightt">
+            <p style="font-size:30px;text-align: center;font-weight: bold;color: red;">The bosic information</p>
+            <p>姓名：<span>修志航</span></p>
+            <p>性别：<span>男</span></p>
+            <p>年龄：<span>22岁</span></p>
+            <p>生日：<span>1996年11月24日</span></p>
+            <p>联系方式：<span>13603344771</span></p>
+            <p>毕业学校：<span>盛邦升华</span></p>
+        </div>
+    </div>
+    <!--第三屏-->
+    <div class="down">
+        <div>
+            <img src="img/wording_design.png">
+            <img src="img/circle-design.png">
+            <img src="img/people_design.png">
+            <img src="img/check_design.png">
+            <img src="img/dot1.png">
+        </div>
+        <!--第三屏第二页-->
+        <div class="rightt" style="position: relative;">
+            <p style="font-size:30px;text-align: center;font-weight: bold;">MY hobby</p>
+            <p><img src="img/zuqiu.gif" class="music_ani music"style="width: 60px;height: 60px;position: absolute;left: 80px;top:50px;">踢足球</p>
+            <p><img src="img/yinyue.gif" class="music_ani music" style="width: 30px;height: 30px;position: absolute;left: 90px;top:130px;">听音乐</p>
+            <p><img src="img/dianying.gif" class="music_ani music" style="width: 30px;height: 30px;position: absolute;left: 90px;top:200px;">看电影</p>
+            <p><img src="img/yumaoqiu.gif" class="music_ani music" style="width: 30px;height: 30px;position: absolute;left: 90px;top:260px;">打羽毛球</p>
+        </div>
+    </div>
+    <!--第四瓶-->
+    <div class="down">
+        <div>
+            <img src="img/wording_production.png">
+            <img src="img/circle-production.png">
+            <img src="img/people_production.png">
+            <img src="img/pic_shadow_production.png">
+            <img src="img/check_production.png">
+            <img src="img/dot1.png">
+        </div>
+        <!--第四瓶第二页-->
+        <div class="rightt">
+            <p style="font-size:30px;text-align: center;font-weight: bold;">Master skill</p>
+             <p>html <progress value="5" max="10" min="0" style="margin-left: 20px;"></progress></p>
+             <p>h5 <progress value="4" max="10" min="0" style="margin-left: 20px;"></progress></p>
+             <p>css3 <progress value="6" max="10" min="0" style="margin-left: 20px;"></progress></p>
+             <p>jq <progress value="7" max="10" min="0" style="margin-left: 20px;"></progress></p>
+             <p>js <progress value="9" max="10" min="0" style="margin-left: 20px;"></progress></p>
+             <p>微场景 <progress value="3" max="10" min="0" style="margin-left: 20px;"></progress></p>
+             <p>手机端 <progress value="2" max="10" min="0" style="margin-left: 20px;"></progress></p>
+        </div>
+    </div>
+    <!--第五平-->
+    <div class="down">
+        <p style="text-align: center;margin-top: 80px;">责任心强，追求个性，<br>乐观开朗，善于表达自己看法，<br>做事追求完美，善于帮助别人。</p>
+        <img src="img/btn_join.png">
+    </div>
+    <img src="img/music.png" class="music_ani music">
+    <audio src="孙子涵%20-%20烹爱.mp3" id="audio_my" loop></audio>
+</div>
+<!--箭头-->
+<div class="jiantou">
+    <img src="img/icon_up.png" class="jian">
+</div>
+</body>
+<script src="js/zepto.min.js"></script>
+<script src="js/touch.js"></script>
+<script>
+    var curpage = 0;
+    $(".container>div").eq(0).siblings().children().addClass("yincang");
+    $(".container").swipeUp(function () {
+        if (curpage < 4) {
+            $(".container>div").eq(curpage).addClass("up");
+            $(".container>div").eq(curpage).children().addClass("yincang");
+            curpage++;
+            $(".container>div").eq(curpage).children().removeClass("yincang");
+            $(".container>div").eq(curpage).removeClass("down");
+        }
+    });
+    $(".container").swipeDown(function () {
+        if (curpage > 0) {
+            $(".container>div").eq(curpage).addClass("down");
+            $(".container>div").eq(curpage).children().addClass("yincang");
+            curpage--;
+            $(".container>div").eq(curpage).children().removeClass("yincang");
+            $(".container>div").eq(curpage).removeClass("up");
+        }
+    });
+
+    //第二屏第二页
+    $(".container >div:nth-child(2)").swipeLeft(function () {
+        $(this).children().eq(0).addClass("leftt");
+        $(this).children().eq(1).removeClass("rightt");
+    });
+    $(".container >div:nth-child(2)").swipeRight(function () {
+        $(this).children().eq(0).removeClass("leftt");
+        $(this).children().eq(1).addClass("rightt");
+    });
+
+    //    第三屏第二页
+    $(".container >div:nth-child(3)").swipeLeft(function () {
+        $(this).children().eq(0).addClass("leftt");
+        $(this).children().eq(1).removeClass("rightt");
+    });
+    $(".container >div:nth-child(3)").swipeRight(function () {
+        $(this).children().eq(0).removeClass("leftt");
+        $(this).children().eq(1).addClass("rightt");
+    });
+    //    第四屏第二页
+    $(".container >div:nth-child(4)").swipeLeft(function () {
+        $(this).children().eq(0).addClass("leftt");
+        $(this).children().eq(1).removeClass("rightt");
+    });
+    $(".container >div:nth-child(4)").swipeRight(function () {
+        $(this).children().eq(0).removeClass("leftt");
+        $(this).children().eq(1).addClass("rightt");
+    });
+    $(".music").tap(function () {
+        if (document.querySelector("#audio_my").paused == true) {
+            document.querySelector("#audio_my").play();
+            $(".music").addClass("music_ani")
+        }
+        else {
+            document.querySelector("#audio_my").pause();
+            $(".music").removeClass("music_ani")
+        }
+    })
+</script>
+</html>
